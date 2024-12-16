@@ -14,10 +14,14 @@
     <!--    Add error message (if present)-->
     <span class="error" th:errors="*{lastName}" th:if="${#fields.hasErrors('lastName')}"></span><br>
 
-    
     Enter free passes : <input th:field="*{freePasses}" type="text"/>
     <!--    Add error message (if present)-->
     <span class="error" th:errors="*{freePasses}" th:if="${#fields.hasErrors('freePasses')}"></span><br>
+
+    Enter postal code : <input th:field="*{postalCode}" type="text"/>
+    <!--    Add error message (if present)-->
+    <span class="error" th:errors="*{postalCode}" th:if="${#fields.hasErrors('postalCode')}"></span><br>
+
     <input type="submit">
 </form>
 </body>
