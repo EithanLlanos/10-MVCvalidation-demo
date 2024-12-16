@@ -1,8 +1,10 @@
 package com.springCourse.MVCvalidationdemo.controller;
 
 import com.springCourse.MVCvalidationdemo.model.Customer;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +20,8 @@ public class CustomerController {
     }
 
     @PostMapping("/customerView")
-    public String getCustomerView(@ModelAttribute("customer") Customer theCustomer) {
-        return "customer-view";
+    public String getCustomerView(@Valid @ModelAttribute("customer") Customer theCustomer, BindingResult theBindingResult) {
+        if (theBindingResult.hasFieldErrors()) return "customer-form";
+        else return "customer-view";
     }
 }
