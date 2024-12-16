@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Document</title>
+</head>
+<body>
+<h1>Customer Formulary</h1>
+<form method="post" th:action="@{/customerView}" th:object="${customer}">
+    Enter the first name: <input th:field="*{firstName}" type="text"/><br>
+    Enter the last name : <input th:field="*{lastName}" type="text"/><br>
+
+    <input type="submit">
+</form>
+</body>
+</html>
