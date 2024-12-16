@@ -1,16 +1,15 @@
 package com.springCourse.MVCvalidationdemo.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class Customer {
 
     private String firstName;
 
-    @NotBlank(message = "Last name is required.") // Ensures the field is not null, empty, or only whitespace.
-    @Size(max = 50, message = "Last name must not exceed 50 characters.") // Limits the length of the last name.
-    @Pattern(regexp = "^[A-Za-z '-]+$", message = "Last name can only contain letters, spaces, hyphens, and apostrophes.")
+    //    Make lastName needed and with a minimum of 1 length
+    @NotNull(message = "is required")
+    @Size(min = 1, message = "is required")
     private String lastName;
 
     public Customer() {
