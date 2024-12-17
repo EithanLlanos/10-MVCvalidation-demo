@@ -1,5 +1,6 @@
 package com.springCourse.MVCvalidationdemo.model;
 
+import com.springCourse.MVCvalidationdemo.validation.CourseCode;
 import jakarta.validation.constraints.*;
 
 public class Customer {
@@ -18,6 +19,12 @@ public class Customer {
 
     @Pattern(regexp = "^[a-zA-z0-9]{5}", message = "only 5 chars/digits")
     private String postalCode;
+
+
+    @NotBlank(message = "must not be blank")
+    @Size(min = 5, message = "must be greater or equal than 5")
+    @CourseCode(value = "luv-", message = "must start with \"luv-\"")
+    private String courseCode;
 
     public Customer() {
 
@@ -55,5 +62,13 @@ public class Customer {
 
     public void setPostalCode(@Pattern(regexp = "^[a-zA-z0-9]{5}", message = "only 5 chars/digits") String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 }
